@@ -5,7 +5,7 @@ import img from './img/profile2.png'
 const Developers = () => {
     return (
         <div>
-            <div className="container">
+            <div className="container bg-light">
                 <NavBar></NavBar>
                 <div className="row mt-4">
                     <div className="col-md-6">

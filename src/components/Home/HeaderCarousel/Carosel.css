@@ -1,0 +1,14 @@
+.carosel img{
+    height:500px;
+    width: 100%;
+}
+.opp{
+    background-color: rgba(65, 65, 75, 0.3);
+    border-radius:20px
+}
+@media screen and (max-width: 600px) {
+    .carosel img{
+        height:300px;
+        width: 100%;
+    }
+}
