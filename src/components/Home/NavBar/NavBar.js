@@ -1,58 +1,49 @@
 import React, { useContext } from 'react';
+import { Nav, Navbar } from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../../App';
+import './NavBar.css'
 
 const NavBar = () => {
     const [loggedInUser,setLoggedInUser]=useContext(UserContext);
     return (
-        <nav className="navbar navbar-expand-lg navbar-light container">
-
-        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span className="navbar-toggler-icon"></span>
-        </button>
-
-        <div className="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul className="navbar-nav ml-auto">
-                <li className="nav-item active">
-                    <Link className="nav-link mr-5" to="/">Home</Link>
-                </li>
-                
-                
-                {
-                    loggedInUser.email=== 'asif.hossain2k20@gmail.com'? <div>
-                        <li className="nav-item">
-                         <Link className="nav-link mr-5" to="/admin">Admin</Link>
-                         
-                    </li>
-                    </div>:<div>
-                    </div>
-
-                }
-                {
-                    loggedInUser.email ? <div>
-                         <li className="nav-item">
-                    <Link className="nav-link mr-5" to="/dashboard">Dashboard</Link>
-                    </li>
-                    </div>: <div></div>
-                }
-                <li className="nav-item">
-                    <Link className="nav-link mr-5" to="/blogs">Blogs</Link>
-                </li>
-                <li className="nav-item">
-                    <Link className="nav-link mr-5" to="/developer">Contact Us</Link>
-                </li>
-                <li className="nav-item">
-
+        <div className="container">
+            <Navbar  bg="primary" className="rounded p-2" variant="dark" expand="lg" sticky="top">
+                                <Navbar.Brand as={Link} to="/">DevelopersPoint</Navbar.Brand>
+                                <Navbar.Toggle aria-controls="basic-navbar-nav" />
+                                <Navbar.Collapse id="basic-navbar-nav">
+                                    <Nav className="mr-auto">
+                                    <Nav.Link className="nav-text" as={Link} to="/Home">Home</Nav.Link>
+                                    <Nav.Link className="nav-text"  as={Link} to="/blogs">Blogs</Nav.Link>
+                                    <Nav.Link  className="nav-text" as={Link} to="/developer">Developer</Nav.Link>
+                                    
+                                  
+                                    
+                                    {
+                        
+                        loggedInUser.email=== 'asif.hossain2k20@gmail.com' ?   
+                        <Nav.Link className="nav-text" as={Link} to="/admin" >Admin</Nav.Link>
+                        :   <div></div>
+                    }
+                    {
+                        
+                        loggedInUser.email  ?   
+                        <Nav.Link className="nav-text" as={Link} to="/dashboard" >DashBoard</Nav.Link>
+                        :   <div></div>
+                    }
                     {
                         
                         loggedInUser.P || loggedInUser.isSignIn ?   
-                        <Link className="nav-link" onClick={()=>setLoggedInUser({})}>Sign Out</Link> 
-                         :   <Link className="nav-link" to="/login">Login</Link>
+                        <Nav.Link className="nav-text" as={Link} to="/login" onClick={()=>setLoggedInUser({})}>Sign Out</Nav.Link> 
+                        :   <Nav.Link className="nav-text" as={Link} to="/login">Login</Nav.Link>
                     }
-                </li>
-            </ul>
-        </div>
-    </nav>
+
+                                    </Nav>
+                                </Navbar.Collapse>
+                            </Navbar>
+
+
+            </div>
 
                 
 
