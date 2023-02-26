@@ -1,9 +1,11 @@
+This a Bike Retail Site.For Sell and Buy Bikes.
+
 Live Site Link :
 
-https://developers-point-d205d.web.app/
+https:https://bike-buy-sale-bd.web.app/
 
 Here We Used : 
 
-ForntEnd: React.js,React-bootstarp
+ForntEnd: React.js,Tailwind.Css
 BackEnd: Node.js,Express.js
 DataBase :MongoDB
